@@ -1,5 +1,4 @@
 # CSE583_Project
-Correlating patent numbers and stock market performance for technology company 
-
-List of 100 tech companies is from Yahoo, ascending by market cap on 11/1/2019.
-92 of their historical stock price were selected and uploaded for our future use.
+Influence of daily top 25 news headlines to the stock market performance; 
+Historical stock price and top 25 daily news headlines from Reddit were selected and uploaded for our future use.
+Final visulization will be the either "0" or "1" represent stock price's change.
