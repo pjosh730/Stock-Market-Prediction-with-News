@@ -7,6 +7,7 @@ import re
 import nltk
 import pandas as pd
 import numpy as np
+import pickle 
 
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from wordcloud import WordCloud
@@ -20,7 +21,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.stem.porter import PorterStemmer
 
-class NaiveBayesModel(object):
+class NaiveBayesModel:
     """
     this is naive bayes model object using news data to predict stock trend
     """
@@ -30,11 +31,10 @@ class NaiveBayesModel(object):
         initialize the naive bayes model
         """
         # import the data; then split the data between testing and training sets based on date
-        df = pd.read_csv('../Data/Combined_News_DJIA.csv')
-        self.data = df 
+        self.data = pd.read_csv('../Data/Combined_News_DJIA.csv')
 
-        self.train = df[df['Date'] < '2015-01-01']
-        self.test = df[df['Date'] > '2014-12-31']
+        self.train = self.data[self.data['Date'] < '2015-01-01']
+        self.test = self.data[self.data['Date'] > '2014-12-31']
             
         #data cleaning
         self.trainheadlines = []
@@ -46,6 +46,13 @@ class NaiveBayesModel(object):
         for row in range(0,len(self.test.index)):
             self.testheadlines.append(' '.join(str(x) for x in self.test.iloc[row,2:27]))
         self.string_test_head = ''.join(self.testheadlines)
+        
+        self.model=MultinomialNB(alpha=0.01)
+        self.tfidf = TfidfVectorizer(min_df=0.1, max_df=0.7, max_features = 200000, ngram_range = (1, 1))
+        self.tfidf_train = self.tfidf.fit_transform(self.trainheadlines) 
+        self.tfidf_test = self.tfidf.transform(self.testheadlines) 
+        self.acc = []
+
 
     
     english_stemmer=nltk.stem.SnowballStemmer('english')
@@ -55,23 +62,24 @@ class NaiveBayesModel(object):
     def word_embedding(self):
         """
         Word embedding for training and testing dataset using the TD-IDF vectorizer
-        input:self
+        input:nothing
         output: TF-IDF processed dataset  
         """
-        tfidf = TfidfVectorizer(min_df=0.1, max_df=0.7, max_features = 200000, ngram_range = (1, 1))
-        self. tfidf_train = tfidf.fit_transform(self.trainheadlines) 
-        self.tfidf_test = tfidf.transform(self.testheadlines) 
-        print(tfidf_train.shape)
-        print(tfidf_test.shape)
-        return self.tfidf_train,self.tfidf_test
+        print(self.tfidf_train.shape)
+        print(self.tfidf_test.shape)
+        return self.tfidf_train.shape,self.tfidf_test.shape
+        return "embedding finished"
 
     def model_building(self):
         """
         Use the multnomial naive bayes model for classification
         """
-        advancedmodel = MultinomialNB(alpha=0.01)
-        advancedmodel = advancedmodel.fit(self.tfidf_train, train["Label"])
-        self.preds = advancedmodel.predict(self.tfidf_test)
+        self.model.fit(self.tfidf_train, self.train["Label"])
+        self.preds = self.model.predict(self.tfidf_test)
         self.acc=accuracy_score(self.test['Label'], self.preds)
+        # Save the model to disk 
+        file = 'naive_bayes_model.sav'
+        pickle.dump(advancedmodel,open(file,'wb'))
+        print("this should work now")
 
     
