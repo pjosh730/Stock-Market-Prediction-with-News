@@ -18,4 +18,64 @@
  - Load a python module of interest: ex. NaiveBayesModel.py 
  - Make predictions (1 means increase in DJIA, 0 means unchanged or decreased in DJIA) 
  
+ ## Software dependendies: 
+ Below are the necessary software and packages to run models in this directory:
  
+ Python version: 3.7 (https://www.python.org)
+ 
+ Python packages needed:
+ 
+ - Matplotlib 
+ 
+ - Numpy (version: 1.16.4)
+ 
+ - Pandas (version: 0.24.2)
+ 
+ - NLTK (version: 3.4.4)
+ 
+ - Scikit-learn (version: 0.21.2)
+ 
+ - Wordcloud (version: 1.5.0)
+ 
+ - Pickle (Version: 0.7.5)
+ 
+License information:
+Stock-Market-Prediction-with-News is licensed under a BSD 2-clause “Simplified” License. The objective behind this choice of licensing is to make the content reproducible and make it useful for as many people as possible. We want to maximize the two-way collaborations with minimum restrictions, so that developers of other projects can easily utilize, patch, improve, and cite this code. For detailed description of the contents of license please refer to License
+ 
+ ## Project structure 
+ The package is organized as follows:
+ 
+ Stock-Market-Prediction-with-News Home (master)
+|     .gitignore
+|     LICENSE
+|     README.md
+|     setup.py
+|  
+|----- doc
+|     |      CSE_583_Technology_Review.pdf
+|     |      Component Speficification.md
+|     |      Functional Specification.md
+|     |      code_backup_ori.ipynb
+|     |      homework5.docx
+|     |
+|----- Stock-Market-Preiction-with-News
+|     |   __init__.py
+|     |   NaiveBayesModel.py
+|     |   random_forest.py
+|     |   .DS_Store
+|     |   __pycache__
+|     |
+|     |----- tests
+|     |      |    __init__.py
+|     |      |    README.md
+|     |      |    interactive_plots_unittests.ipynb
+|     |      |    test_data_processing.py
+|     |      |    test_network_tools.py
+|     |      |    test_plotting.py
+|     |      |    test_sensitivity_tools.py
+|     |
+|     |----- Data
+|     |      |    .DS_Store
+|     |      |    Combined_News_DJIA.csv
+|     |      |    dailynews.csv
+|     |
