@@ -4,6 +4,9 @@
 Created on Tue Dec  3 16:50:51 2019
 
 @author: ruiyuzeng
+
+Update Dec 7
+By Weikun Hu
 """
 
 """
@@ -102,4 +105,40 @@ class NaiveBayesModel:
         string_tfidf = self.tfidf.fit_transform([string])
         model_load = pickle.load(open(file,'rb'))
         return model_load.predict(string_tfidf)
-    
+
+    def new_data_prediction(self):
+        # Read Data
+        df = pd.read_csv(file_name, header=None)
+        df = df[:1]
+        headlines = []
+        for row in range(0, len(df.index)):
+            headlines.append(' '.join(str(x) for x in df.iloc[row, 0:24]))
+        string = ''.join(headlines)
+        # Clean Data
+
+        string = raw_text
+        string = string.lower()
+        string = re.sub(r'[^\w\s]', ' ', string) # remove punctuation
+        string = ' '.join([w for w in string.split() if len(w) >= 3])
+
+        # Vectorization
+        tfidf = pickle.load(open(tfidf_model_name, 'rb'))
+        vectorizer = TfidfVectorizer(min_df=0.04, max_df=0.3, max_features=200000,
+                                             ngram_range=(2, 2), vocabulary=tfidf.vocabulary_)
+
+        X_tfidf = vectorizer.fit_transform([clean_text])
+        X_tfidf = X_tfidf.toarray()
+        X_tfidf
+
+        # Prediction
+        json_file = open(model_name1, 'r')
+        loaded_model_json = json_file.read()
+        json_file.close()
+        loaded_model = model_from_json(loaded_model_json)
+        # load weights into new model
+        loaded_model.load_weights(model_name2)
+        loaded_model.predict_classes(X_tfidf, verbose=0)
+
+
+
+

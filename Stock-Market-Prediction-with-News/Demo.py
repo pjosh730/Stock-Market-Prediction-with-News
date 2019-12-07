@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
-
-# ## Import libraries
-
-# In[1]:
+"""
+Weikun Hu
 
 #file_name = '../Data/dailynews.csv'
-
+"""
 import re
 import pickle
 import pandas as pd
