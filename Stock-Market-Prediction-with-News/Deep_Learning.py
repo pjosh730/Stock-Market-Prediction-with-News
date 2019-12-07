@@ -260,17 +260,7 @@ with open("../Model/model.json", "w") as json_file:
 model.save_weights("../Model/model.h5")
 print("Saved model to disk")
  
-# later...
- 
 
-
-# In[ ]:
-
-
-
-
-
-# In[14]:
 
 
 # load json and create model
@@ -340,22 +330,9 @@ print('prediction accuracy: ', acc16)
 
 
 
-
-
-
-# In[15]:
-
-
 X_test
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 
