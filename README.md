@@ -18,7 +18,7 @@
  - Load a python module of interest: ex. NaiveBayesModel.py 
  - Make predictions (1 means increase in DJIA, 0 means unchanged or decreased in DJIA) 
  
- ## Software dependendies: 
+ ## Software dependencies: 
  Below are the necessary software and packages to run models in this directory:
  
  Python version: 3.7 (https://www.python.org)
