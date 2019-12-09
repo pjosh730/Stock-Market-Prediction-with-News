@@ -14,7 +14,7 @@
 - Type the following command into your terminal/Git bash shell: 
    $ git clone https://github.com/pjosh730/Stock-Market-Prediction-with-News
  - Initiate a new jupyter notebook
- - Download the first 25 news headlines on Reddit (https://www.reddit.com/r/news/)
+ - Download the first 25 news headlines on Reddit as a csv file(https://www.reddit.com/r/news/)
  - Load a python module of interest: ex. NaiveBayesModel.py 
  - Make predictions (1 means increase in DJIA, 0 means unchanged or decreased in DJIA) 
  
