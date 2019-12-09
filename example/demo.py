@@ -94,3 +94,12 @@ def prediction_deep_learning(model_name1, model_name2, x_tfidf):
     # ### Predict DJIA Increase [1] or Decrease [0]
 
     return loaded_model.predict_classes(x_tfidf, verbose=0)
+
+
+def prediction_nb(nb_model_name, x_tfidf):
+    """
+    Preidict New Data
+    """
+    model = pickle.load(open(nb_model_name, 'rb'))
+    return model.predict(x_tfidf)
+
