@@ -32,11 +32,11 @@ class DeepLearning:
     """
     def __init__(self):
 
-        self.train_file_name = './Data/Combined_News_DJIA.csv'
-        self.new_data_name = './Data/dailynews.csv'
-        self.tfidf_model_name = "./Model/tfidf_DL.pkl"
-        self.dl_model_name1 = './Model/dl_model.json'
-        self.dl_model_name2 = './Model/dl_model.h5'
+        self.train_file_name = '../Data/Combined_News_DJIA.csv'
+        self.new_data_name = '../Data/dailynews.csv'
+        self.tfidf_model_name = "../Model/tfidf_DL.pkl"
+        self.dl_model_name1 = '../Model/dl_model.json'
+        self.dl_model_name2 = '../Model/dl_model.h5'
 
         #self.nb_model_name = './Model/naive_bayes_model.sav'
         self.tfidf = TfidfVectorizer(min_df=0.1, max_df=0.7,

@@ -27,10 +27,10 @@ class NaiveBayesModel:
         initialize the naive bayes model
         """
         # import the data; then split the data between testing and training sets based on date
-        self.train_file_name = './Data/Combined_News_DJIA.csv'
-        self.new_data_name = './Data/dailynews.csv'
-        self.tfidf_model_name = "./Model/tfidf_NB.pkl"
-        self.nb_model_name = './Model/naive_bayes_model.sav'
+        self.train_file_name = '../Data/Combined_News_DJIA.csv'
+        self.new_data_name = '../Data/dailynews.csv'
+        self.tfidf_model_name = "../Model/tfidf_NB.pkl"
+        self.nb_model_name = '../Model/naive_bayes_model.sav'
         self.tfidf = TfidfVectorizer(min_df=0.1, max_df=0.7,
                                      max_features=200000, ngram_range=(1, 1))
         self.model = MultinomialNB(alpha=0.01)
