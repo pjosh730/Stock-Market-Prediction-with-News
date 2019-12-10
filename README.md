@@ -46,37 +46,29 @@ Stock-Market-Prediction-with-News is licensed under a BSD 2-clause “Simplified
  The package is organized as follows:
 ```
  Stock-Market-Prediction-with-News Home (master)
-|     .gitignore
-|     LICENSE
-|     README.md
-|     setup.py
-|  
-|----- doc
-|     |      CSE_583_Technology_Review.pdf
-|     |      Component Speficification.md
-|     |      Functional Specification.md
-|     |      code_backup_ori.ipynb
-|     |      homework5.docx
-|     |
 |----- Stock-Market-Preiction-with-News
-|     |   __init__.py
-|     |   NaiveBayesModel.py
-|     |   random_forest.py
-|     |   .DS_Store
-|     |   __pycache__
-|     |
-|     |----- tests
-|     |      |    __init__.py
-|     |      |    README.md
-|     |      |    interactive_plots_unittests.ipynb
-|     |      |    test_data_processing.py
-|     |      |    test_network_tools.py
-|     |      |    test_plotting.py
-|     |      |    test_sensitivity_tools.py
-|     |
-|     |----- Data
-|     |      |    .DS_Store
-|     |      |    Combined_News_DJIA.csv
-|     |      |    dailynews.csv
-|     |
+      |----__init__.py
+      |----main.py
+      |----naive_bayes_model_new.py
+      |----Deep_Learning.py
+      |----visualization.py
+      |----tests
+             |----__init__.py
+             |----README.md
+             |----interactive_plots_unittests.ipynb
+             |----test_data_processing.py
+             |----test_network_tools.py
+             |----test_plotting.py
+             |----test_sensitivity_tools.py
+      |----- Data
+             |----Combined_News_DJIA.csv
+             |----dailynews.csv
+      |----- doc
+             |----final_presentation
+             |----Component Speficification.md
+             |----Functional Specification.md
+|----.gitignore
+|----LICENSE
+|----README.md
+|----setup.py      
 ```
