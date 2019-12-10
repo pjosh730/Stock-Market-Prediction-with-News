@@ -5,13 +5,13 @@ Data Manager:
 Natural Language ToolKit and Scikit-Learn.
 The system will use Natural Language ToolKit and Scikit-Learn to preprocessing text data. Those two will help transfer the dataset into useable vectors.
 
-Visualization: 
+Visualization Tools: 
 Word Cloud and Matplotlib.
 Use matplotlib and word cloud libraries to visualize text data. They can build plots with size of each words indicate their frequency and importance. Meanwhile the prediction will be given.
 
 Machine Learning Moduel:
 Random Forest and Naive Bayes.
-Those two moduels will provide a accurancy for our prediction t support the correctness.
+Those two moduels will provide a accurancy for our prediction to support the correctness.
 
 ## Interactions to accomplish use cases
 The system will do a stock price prediction job；
