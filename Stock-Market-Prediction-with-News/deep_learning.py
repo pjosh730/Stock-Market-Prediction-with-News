@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 # Weikun Hu
-# 2019/12/08
+# 2019/12/10
 """
 Deep Learning Model
 """
-
 
 import pickle
 import re
@@ -26,9 +25,9 @@ from keras.models import model_from_json
 
 class DeepLearning:
     """
-    This i Deep Leaning Model Class
-    Train Model
-    Make Prediction Using Model
+    This Deep Leaning class contains two funtions
+    1. train deep learning model
+    2. make prediction using pre-trained model
     """
     def __init__(self):
 
@@ -37,15 +36,13 @@ class DeepLearning:
         self.tfidf_model_name = "../Model/tfidf_DL.pkl"
         self.dl_model_name1 = '../Model/dl_model.json'
         self.dl_model_name2 = '../Model/dl_model.h5'
-
-        #self.nb_model_name = './Model/naive_bayes_model.sav'
         self.tfidf = TfidfVectorizer(min_df=0.1, max_df=0.7,
                                      max_features=200000, ngram_range=(1, 1))
-        #self.model = MultinomialNB(alpha=0.01)
 
     def train_dl_model(self):
         """
-        Train Deep Learning Model
+        Train Deep Learning model and save the model
+        User can modify parameters
         """
         data = pd.read_csv(self.train_file_name)
         train = data[data['Date'] < '2015-01-01']
@@ -66,7 +63,6 @@ class DeepLearning:
         advancedtrain = advancedvectorizer.fit_transform(trainheadlines)
         y_train = np.array(train["Label"])
         y_test = np.array(test["Label"])
-
 
         ### LSTM
         max_features = 10000
@@ -109,13 +105,14 @@ class DeepLearning:
     def new_data_prediction(self):
         """
         Make prediction given new data
+        The result is either 1 (DJIA increases)
+        Or 0 (DJIA decreses)
         """
         # Load Data
         df = pd.read_csv(self.new_data_name, header=None)
         df = df[:1]
 
         # Preprocessing Data
-
         headlines = []
         for row in range(0, len(df.index)):
             headlines.append(' '.join(str(x) for x in df.iloc[row, 0:24]))
@@ -131,13 +128,11 @@ class DeepLearning:
         vectorizer = TfidfVectorizer(min_df=0.04, max_df=0.3, max_features=200000,
                                      ngram_range=(2, 2), vocabulary=tfidf.vocabulary_)
         #Vectorize Newsheadlines
-
         x_tfidf = vectorizer.fit_transform([string])
         x_tfidf = x_tfidf.toarray()
 
         # Prediction
         # Load Deep learning model
-
         json_file = open(self.dl_model_name1, 'r')
         loaded_model_json = json_file.read()
         json_file.close()
@@ -145,5 +140,4 @@ class DeepLearning:
         loaded_model.load_weights(self.dl_model_name2)
 
         #Predict DJIA Increase [1] or Decrease [0]
-
         return loaded_model.predict_classes(x_tfidf, verbose=0)
