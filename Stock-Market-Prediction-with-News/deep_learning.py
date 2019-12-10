@@ -25,12 +25,15 @@ from keras.models import model_from_json
 
 class DeepLearning:
     """
-    This Deep Leaning class contains two funtions
+    The class uses news data to predict stock trend
+    It contains two funtions
     1. train deep learning model
     2. make prediction using pre-trained model
     """
     def __init__(self):
-
+        """
+        initialize the model
+        """
         self.train_file_name = '../Data/Combined_News_DJIA.csv'
         self.new_data_name = '../Data/dailynews.csv'
         self.tfidf_model_name = "../Model/tfidf_DL.pkl"

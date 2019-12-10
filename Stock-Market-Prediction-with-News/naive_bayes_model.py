@@ -20,13 +20,15 @@ from sklearn.metrics import accuracy_score
 class NaiveBayesModel:
     """
     this is naive bayes model object using news data to predict stock trend
+    the class contains two funtions
+    1. train deep learning model
+    2. make prediction using pre-trained model
     """
 
     def __init__(self):
         """
         initialize the naive bayes model
         """
-        # import the data; then split the data between testing and training sets based on date
         self.train_file_name = '../Data/Combined_News_DJIA.csv'
         self.new_data_name = '../Data/dailynews.csv'
         self.tfidf_model_name = "../Model/tfidf_NB.pkl"
@@ -65,25 +67,13 @@ class NaiveBayesModel:
         preds = model.predict(tfidf_test)
         acc = accuracy_score(test['Label'], preds)
         pickle.dump(model, open(self.nb_model_name, 'wb'))
-        #return self.acc, file
 
-    # def model_predict(self):
-    #     """
-    #     load recent daily news as a dataframe
-    #     fit the TFIDF vectorizer to the daily news
-    #     """
-    #     df = pd.read_csv("./Data/dailynews.csv")
-    #     headlines_news = []
-    #     for row in range(0, len(df.index)):
-    #         headlines_news.append(' '.join(str(x) for x in df.iloc[row, 0:24]))
-    #     string = ''.join(headlines_news)
-    #     string_tfidf = self.tfidf.fit_transform([string])
-    #     model_load = pickle.load(open(file, 'rb'))
-    #     return model_load.predict(string_tfidf)
 
     def new_data_prediction(self):
         """
         Make Prediction for New Data
+        The result is either 1 (DJIA increases)
+        Or 0 (DJIA decreses)
         """
         data = pd.read_csv(self.new_data_name, header=None)
         data = data[:1]
