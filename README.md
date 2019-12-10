@@ -60,13 +60,16 @@ Stock-Market-Prediction-with-News is licensed under a BSD 2-clause “Simplified
              |----test_network_tools.py
              |----test_plotting.py
              |----test_sensitivity_tools.py
-      |----- Data
-             |----Combined_News_DJIA.csv
-             |----dailynews.csv
-      |----- doc
-             |----final_presentation
-             |----Component Speficification.md
-             |----Functional Specification.md
+|----- Data
+       |----Combined_News_DJIA.csv
+       |----dailynews.csv
+|----- example
+       |----demo.py
+       |----demo_presentation.ipynb
+|----- doc
+       |----final_presentation
+       |----Component Speficification.md
+       |----Functional Specification.md
 |----.gitignore
 |----LICENSE
 |----README.md
