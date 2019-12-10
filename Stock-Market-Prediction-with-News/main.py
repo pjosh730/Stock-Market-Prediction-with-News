@@ -12,7 +12,7 @@ DL.train_dl_model()
 DL.new_data_prediction()
 
 
-from naive_bayes_model_new import NaiveBayesModel
+from naive_bayes_model import NaiveBayesModel
 NB = NaiveBayesModel()
 # Train naive bayes model
 NB.train_nb_model()
