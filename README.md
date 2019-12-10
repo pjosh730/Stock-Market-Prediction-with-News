@@ -44,7 +44,7 @@ Stock-Market-Prediction-with-News is licensed under a BSD 2-clause “Simplified
  
  ## Project structure 
  The package is organized as follows:
- 
+```
  Stock-Market-Prediction-with-News Home (master)
 |     .gitignore
 |     LICENSE
@@ -79,3 +79,4 @@ Stock-Market-Prediction-with-News is licensed under a BSD 2-clause “Simplified
 |     |      |    Combined_News_DJIA.csv
 |     |      |    dailynews.csv
 |     |
+```
