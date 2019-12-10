@@ -1,5 +1,6 @@
 import unittest
-import random_forest as rf
+
+from .. import random_forest as rf
 
 RF = rf.RandomForestModel()
 a = RF.tfidf_rf_mod1()
